@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Car Service & Repair Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#2563EB', secondary: '#111827', accent: '#F97316' } } } }</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563EB'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white'>🚗</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-['Inter'] bg-white text-secondary dark:bg-[#0F172A] dark:text-gray-200">
+    <!-- Loader -->
+    <div id="loader" class="loader-overlay">
+        <div class="text-center">
+            <div class="loader-spinner mx-auto mb-4"></div>
+            <p class="text-gray-600 font-semibold">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Navbar injected by js/navbar.js -->
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 min-h-[420px] bg-cover bg-center flex items-center justify-center" style="background-image: linear-gradient(rgba(17,24,39,0.7), rgba(17,24,39,0.7)), url('https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=800&q=80');">
+        <div class="text-center text-white animate-fade-in">
+            <nav class="text-sm mb-4">
+                
+                <span class="text-accent">Services</span>
+            </nav>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto">Complete automotive care with certified technicians and honest pricing</p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-20 dark:bg-[#1E293B]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <span class="text-accent font-semibold text-sm uppercase tracking-wider">What We Offer</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">Our Full Range of Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">From routine maintenance to complex repairs, we've got every aspect of your vehicle covered.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- 1. Engine Repair -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80" alt="Engine Repair" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-bold">$150 – $2,500</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Engine Repair</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Comprehensive engine diagnostics and repair covering everything from minor tune-ups to complete overhauls. We use OEM-spec parts and advanced diagnostic tools to pinpoint issues accurately.</p>
+                        <button data-book="Engine Repair" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- 2. Brake Service -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]" style="animation-delay: 0.05s;">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80" alt="Brake Service" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-bold">$89 – $800</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Brake Service</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Full brake system inspection, pad and rotor replacement, brake fluid flush, and caliper rebuilds. We ensure your stopping power is reliable in every driving condition.</p>
+                        <button data-book="Brake Service" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- 3. Transmission -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]" style="animation-delay: 0.1s;">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=800&q=80" alt="Transmission Service" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-bold">$200 – $3,000</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Transmission Service</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Automatic and manual transmission diagnostics, fluid changes, clutch replacement, and complete rebuilds. Our specialists handle all makes including CVT and dual-clutch systems.</p>
+                        <button data-book="Transmission Service" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- 4. Suspension -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]" style="animation-delay: 0.15s;">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1611821064430-0d40291d0f0b?w=800&q=80" alt="Suspension Repair" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-bold">$120 – $1,500</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Suspension Repair</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Shock and strut replacement, ball joint repair, control arm service, and full suspension alignment. We restore your ride comfort and handling precision to factory specifications.</p>
+                        <button data-book="Suspension Repair" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- 5. Electrical -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]" style="animation-delay: 0.2s;">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=80" alt="Electrical Systems" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-bold">$75 – $1,200</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Electrical Systems</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Complete electrical diagnostics, wiring repair, alternator and starter replacement, and ECU programming. We trace intermittent faults using advanced oscilloscope and multimeter techniques.</p>
+                        <button data-book="Electrical Systems" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- 6. Full Diagnostics -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]" style="animation-delay: 0.25s;">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80" alt="Full Diagnostics" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-bold">$99</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Full Diagnostics</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">A comprehensive 150-point vehicle inspection using state-of-the-art OBD-II scanners and proprietary diagnostic software. Get a detailed report of your vehicle's health in under an hour.</p>
+                        <button data-book="Full Diagnostics" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- 7. Tyre Replacement -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]" style="animation-delay: 0.3s;">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1611821064430-0d40291d0f0b?w=800&q=80" alt="Tyre Replacement" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-bold">$80 – $800</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-gray-500/10 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Tyre Replacement</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Tyre sales, mounting, balancing, and rotation from leading brands. We help you select the right tyres for your driving style, climate, and budget with professional installation guaranteed.</p>
+                        <button data-book="Tyre Replacement" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- 8. Battery Service -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]" style="animation-delay: 0.35s;">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80" alt="Battery Service" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-bold">$25 – $200</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Battery Service</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Free battery testing, replacement with premium brands, and charging system diagnostics. We also service hybrid batteries and install trickle chargers for seasonal vehicles.</p>
+                        <button data-book="Battery Service" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- 9. AC Service -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]" style="animation-delay: 0.4s;">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1621939514649-230300d2d689?w=800&q=80" alt="AC Service" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-bold">$89 – $1,500</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">AC Service</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Complete climate control diagnostics, refrigerant recharge, compressor replacement, and cabin filter service. We restore factory cooling performance for passenger comfort all year round.</p>
+                        <button data-book="AC Service" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- 10. Wheel Alignment -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]" style="animation-delay: 0.45s;">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1611821064430-0d40291d0f0b?w=800&q=80" alt="Wheel Alignment" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-bold">$69</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Wheel Alignment</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Precision four-wheel alignment using Hunter laser equipment. Corrects uneven tyre wear, pulling issues, and steering wheel offset to improve handling and extend tyre life significantly.</p>
+                        <button data-book="Wheel Alignment" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- 11. Car Wash & Detailing -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]" style="animation-delay: 0.5s;">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80" alt="Car Wash and Detailing" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-bold">$39 – $299</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-blue-400/10 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Car Wash & Detailing</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">Exterior wash, hand wax, interior vacuum, steam cleaning, leather conditioning, and full ceramic coating packages. Showroom-quality results that protect your vehicle's paint and interior.</p>
+                        <button data-book="Car Wash & Detailing" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- 12. Emergency Roadside -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]" style="animation-delay: 0.55s;">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=800&q=80" alt="Emergency Roadside Assistance" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <span class="absolute top-4 right-4 bg-accent text-white px-3 py-1 rounded-full text-xs font-bold">$50 – $200</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Emergency Roadside</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">24/7 roadside assistance including jump starts, flat tyre changes, lockout service, and emergency towing. Our rapid-response team reaches you within 30 minutes in the metro area.</p>
+                        <button data-book="Emergency Roadside" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition">Book Now</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Our Services -->
+    <section class="py-20 bg-gray-50 dark:bg-[#0F172A]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <span class="text-accent font-semibold text-sm uppercase tracking-wider">The Difference</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">Why Choose Our Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We go beyond basic repairs to deliver an experience that earns your trust and keeps you coming back.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]">
+                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-10 h-10 text-primary group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">ASE Certified</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Every technician holds ASE certifications and undergoes ongoing training to stay current with the latest automotive technology and repair procedures.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]" style="animation-delay: 0.1s;">
+                    <div class="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-10 h-10 text-accent group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Transparent Pricing</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">You receive a detailed written estimate before any work begins. No surprises, no hidden fees — just honest pricing that respects your budget.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]" style="animation-delay: 0.2s;">
+                    <div class="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-500 group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-10 h-10 text-green-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Fast Turnaround</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">We value your time. Most services are completed same-day, and we provide real-time updates so you always know when your vehicle will be ready.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover-scale animate-fade-in-up group dark:bg-[#1E293B] dark:border dark:border-[#334155]" style="animation-delay: 0.3s;">
+                    <div class="w-20 h-20 bg-purple-500/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-500 group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-10 h-10 text-purple-500 group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Warranty Backed</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">All repairs are backed by our comprehensive 12-month / 12,000-mile warranty. If anything goes wrong, we fix it free of charge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warranty Section -->
+    <section class="py-20 bg-secondary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-left">
+                    <span class="text-accent font-semibold text-sm uppercase tracking-wider">Guaranteed Quality</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-6">Our Service Warranty</h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Every repair we perform is backed by our ironclad warranty. We stand behind our workmanship and the quality of parts we use because we believe in doing the job right the first time.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg">12-Month / 12,000-Mile Warranty</h5>
+                                <p class="text-gray-400 text-sm">Covers all labor and parts for qualifying repairs at no additional cost.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg">Genuine OEM & OEM-Equal Parts</h5>
+                                <p class="text-gray-400 text-sm">We use manufacturer-specified parts that meet or exceed original equipment standards.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg">Nationwide Warranty Network</h5>
+                                <p class="text-gray-400 text-sm">Your warranty is honored at over 2,000 affiliated service centers across the country.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg">Satisfaction Guarantee</h5>
+                                <p class="text-gray-400 text-sm">If you're not completely satisfied, we'll make it right — guaranteed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-slide-right">
+                    <div class="bg-gradient-to-br from-primary to-blue-700 p-10 rounded-2xl text-center">
+                        <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-4">100% Satisfaction</h3>
+                        <p class="text-blue-100 text-lg mb-6">We're not happy until you are. Every service comes with our personal promise of quality.</p>
+                        <div class="bg-white/20 rounded-xl p-6">
+                            <p class="text-2xl font-bold text-accent">50,000+</p>
+                            <p class="text-blue-100 mt-1">Happy Customers & Counting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-gradient-to-r from-primary to-blue-700 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-fade-in">Need a Custom Service?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto animate-fade-in-up">Every vehicle is different. If you don't see the service you need, give us a call or fill out the form — we'll create a tailored solution for your specific situation.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.2s;">
+                <a href="tel:+1234567890" class="bg-accent hover:bg-orange-600 px-8 py-4 rounded-full font-bold text-lg transition hover-scale inline-block">
+                    📞 (123) 456-7890
+                </a>
+                <a href="contact.html" class="border-2 border-white hover:bg-white hover:text-secondary px-8 py-4 rounded-full font-bold text-lg transition inline-block">
+                    Contact Us →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg hidden items-center justify-center hover:bg-blue-700 transition z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+    </button>
+
+
+
+    
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4" onclick="this.classList.add('hidden')">
+        <img id="lightboxImg" src="" alt="Preview" class="max-w-full max-h-full rounded-lg">
+    </div>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
