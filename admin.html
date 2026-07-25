@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin · Car Service & Repair Center</title>
-  <link rel="shortcut icon" href="#" type="image/x-icon">
-  <meta name="description" content="Admin dashboard for Car Service & Repair Center management." />
-  <script src="/tailwindcss.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Car Service & Repair Center</title>
+  <meta name="description" content="Admin dashboard for Car Service & Repair Center management.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/icons/favicon-admin.svg" type="image/svg+xml">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563EB',
+            secondary: '#111827',
+            accent: '#F97316',
+            light: '#F8FAFC',
+            darktext: '#1F2937',
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
   <style>
     :root {
-      --primary: #0b3b5c;
-      --primary-light: #1a5a7a;
+      --primary: #2563EB;
+      --primary-light: #3B82F6;
       --gray-100: #f3f5f7;
       --gray-200: #e2e7ed;
       --gray-300: #c9d0da;
@@ -46,25 +69,27 @@
     .dark body { background: #0e1420; color: #e8ecf2; }
     a { text-decoration: none; color: inherit; }
 
-    /* Loader */
     .page-loader {
       position: fixed; inset:0; background: #f0f3f8; display:flex; align-items:center; justify-content:center;
       z-index:9999; transition: opacity 0.4s;
     }
     .dark .page-loader { background: #0e1420; }
     .page-loader.hidden { opacity:0; pointer-events:none; }
-    .loader-text { font-size:1.8rem; font-weight:700; letter-spacing:4px; color:var(--primary); }
+    .loader-ring {
+      width: 48px; height: 48px; border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: #2563eb; border-right-color: #f97316;
+      border-radius: 50%; animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
     .sidebar-toggle {
-      background: var(--card-bg); border:1px solid var(--gray-200); border-radius:10px;
+      background: var(--card-bg); border:1px solid var(--gray-200); border-radius:12px;
       padding:10px 12px; font-size:1.1rem; cursor:pointer; display:none;
       color:var(--gray-600); transition:0.2s; align-items: center; justify-content: center;
     }
     .sidebar-toggle:hover { background:var(--gray-100); }
     .dark .sidebar-toggle { background:#1a1e2a; border-color:#2a3040; color:#ccc; }
-    .dark .sidebar-toggle:hover { background:#2a3040; }
 
-    /* Sidebar */
     .admin-sidebar {
       position:fixed; top:0; left:0; width:270px; height:100%;
       background:var(--card-bg); border-right:1px solid var(--gray-200);
@@ -75,10 +100,32 @@
     .dark .admin-sidebar { border-color:#2a3040; }
     .sidebar-inner { display:flex; flex-direction:column; height:100%; }
     .logo {
-      font-size:1.4rem; font-weight:700; letter-spacing:0.5px;
-      color:var(--primary); margin-bottom:32px; display:block; white-space:nowrap;
+      margin-bottom:32px; display:flex; align-items:center; gap:10px;
+      text-decoration:none; flex-shrink:0; white-space:nowrap; position:relative;
     }
-    .logo i { margin-right:8px; color:var(--primary); }
+    .logo:hover .logo-icon-wrap { transform:scale(1.05); box-shadow:0 8px 25px rgba(37,99,235,0.3); }
+    .logo-icon-wrap {
+      width:40px; height:40px; background:linear-gradient(135deg,#2563EB,#1D4ED8);
+      border-radius:12px; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 15px rgba(37,99,235,0.25); transition:all 0.3s ease; position:relative;
+      flex-shrink:0;
+    }
+    .logo-icon-wrap svg { width:20px; height:20px; color:#fff; }
+    .logo-icon-wrap .logo-badge {
+      position:absolute; top:-3px; right:-3px; width:12px; height:12px;
+      background:#F97316; border-radius:50%; border:2px solid #fff; transition:border-color 0.5s;
+    }
+    .logo-text-main {
+      font-size:0.95rem; font-weight:800; letter-spacing:-0.01em;
+      color:#1F2937; line-height:1.2; display:block; transition:color 0.5s;
+    }
+    .logo-text-sub {
+      font-size:0.55rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+      color:#6B7280; line-height:1.2; display:block; transition:color 0.5s;
+    }
+    .dark .logo-text-main { color:#F9FAFB; }
+    .dark .logo-text-sub { color:#9CA3AF; }
+    .dark .logo-icon-wrap .logo-badge { border-color:#1a1e2a; }
     .sidebar-menu { display:flex; flex-direction:column; gap:4px; flex:1; }
     .sidebar-item {
       display:flex; align-items:center; gap:14px; padding:12px 16px;
@@ -118,8 +165,6 @@
     }
     .dark .dashboard-controls button { border-color:rgba(255,255,255,0.12); color:var(--gray-300); }
     .dashboard-controls button:hover { background:var(--gray-100); border-color:var(--primary); color:var(--primary); }
-    .dark .dashboard-controls button:hover { background:rgba(255,255,255,0.06); border-color:var(--primary); color:var(--primary); }
-    
     .theme-icon-sun { display:none; }
     .dark .theme-icon-moon { display:none; }
     .dark .theme-icon-sun { display:inline; }
@@ -129,23 +174,24 @@
     .admin-profile-info .name { font-weight:600; font-size:0.88rem; white-space: nowrap; }
     .admin-profile-info .role { font-size:0.75rem; color:var(--gray-400); white-space: nowrap; }
     .admin-avatar {
-      width:40px; height:40px; border-radius:50%; background:var(--primary);
+      width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg, #2563eb, #1d4ed8);
       display:flex; align-items:center; justify-content:center; color:#fff; font-weight:600; flex-shrink:0;
+      font-size: 0.85rem;
     }
 
     .grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
     .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
-    .card { background:var(--card-bg); border-radius:var(--radius); border:1px solid var(--gray-200); transition:0.25s; padding:24px; }
-    .dark .card { border-color:#2a3040; }
-    
+    .card { background:var(--card-bg); border-radius:var(--radius); border:1px solid var(--gray-200); transition:0.25s; padding:24px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+    .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+    .dark .card { border-color:#2a3040; box-shadow: none; }
+
     .stat-card {
       background:var(--card-bg); border-radius:var(--radius); padding:22px 20px;
-      border:1px solid var(--gray-200); transition:0.25s;
+      border:1px solid var(--gray-200); transition:0.25s; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
+    .stat-card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.06); }
     .dark .stat-card { border-color:#2a3040; }
-    .stat-card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.04); }
-    .dark .stat-card:hover { box-shadow:0 8px 24px rgba(0,0,0,0.2); }
-    .stat-card-icon { width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#fff; margin-bottom:12px; }
+    .stat-card-icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#fff; margin-bottom:12px; }
     .stat-card h3 { font-size:1.8rem; font-weight:700; }
     .stat-card p { color:var(--gray-500); font-size:0.85rem; }
 
@@ -176,15 +222,16 @@
     .table-actions a:hover { color:var(--primary); }
 
     .btn-primary {
-      padding:10px 20px; background:var(--primary); color:#fff; border:none;
-      border-radius:10px; font-size:0.85rem; cursor:pointer; transition:0.25s;
+      padding:10px 20px; background:linear-gradient(135deg, #2563eb, #1d4ed8); color:#fff; border:none;
+      border-radius:12px; font-size:0.85rem; cursor:pointer; transition:0.25s;
       display:inline-flex; align-items:center; gap:8px; font-weight:600;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.25);
     }
-    .btn-primary:hover { opacity:0.9; transform:translateY(-1px); }
+    .btn-primary:hover { transform:translateY(-1px); box-shadow: 0 4px 12px rgba(37,99,235,0.35); }
 
     .filter-bar { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px; align-items:center; }
     .filter-bar input, .filter-bar select {
-      padding:10px 14px; border:1.5px solid var(--gray-200); border-radius:10px;
+      padding:10px 14px; border:1.5px solid var(--gray-200); border-radius:12px;
       font-size:0.85rem; background:transparent; color:inherit; font-family:inherit;
     }
     .filter-bar input { flex:1; min-width:200px; }
@@ -192,7 +239,7 @@
 
     .pagination { display:flex; justify-content:center; gap:8px; margin-top:24px; }
     .pagination a {
-      padding:8px 16px; border:1.5px solid var(--gray-200); border-radius:8px;
+      padding:8px 16px; border:1.5px solid var(--gray-200); border-radius:10px;
       font-size:0.85rem; transition:0.2s;
     }
     .dark .pagination a { border-color:rgba(255,255,255,0.12); }
@@ -201,11 +248,10 @@
     .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
     .service-card {
       background:var(--card-bg); border-radius:var(--radius); overflow:hidden;
-      border:1px solid var(--gray-200); transition:0.25s;
+      border:1px solid var(--gray-200); transition:0.25s; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
+    .service-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(0,0,0,0.08); }
     .dark .service-card { border-color:#2a3040; }
-    .service-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(0,0,0,0.06); }
-    .dark .service-card:hover { box-shadow:0 8px 30px rgba(0,0,0,0.3); }
     .service-card img { width:100%; height:200px; object-fit:cover; }
     .service-card-body { padding:16px; }
     .service-card-body h3 { font-size:1.1rem; margin-bottom:4px; }
@@ -223,7 +269,6 @@
     .section-panel { display:none; }
     .section-panel.active { display:block; }
 
-    /* Inbox */
     .inbox-wrapper { display:flex; border-radius:var(--radius); overflow:hidden; min-height:600px; }
     .inbox-list { width:380px; flex-shrink:0; background:var(--gray-100); border-right:1px solid var(--gray-200); }
     .dark .inbox-list { background:rgba(255,255,255,0.03); border-color:#2a3040; }
@@ -237,9 +282,9 @@
       border-bottom:1px solid var(--gray-200); position:relative; transition:0.2s;
     }
     .dark .inbox-item { border-color:#2a3040; }
-    .inbox-item:hover, .inbox-item.active { background:rgba(11,59,92,0.08); }
+    .inbox-item:hover, .inbox-item.active { background:rgba(37,99,235,0.06); }
     .inbox-item .sender-avatar {
-      width:42px; height:42px; border-radius:50%; background:var(--primary);
+      width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg, #2563eb, #1d4ed8);
       display:flex; align-items:center; justify-content:center; color:#fff; font-weight:600; font-size:0.85rem; flex-shrink:0;
     }
     .inbox-item .item-content { flex:1; min-width:0; }
@@ -265,7 +310,6 @@
     .btn-send { padding:10px 24px; background:var(--primary); color:#fff; border:none; border-radius:10px; font-size:0.85rem; cursor:pointer; transition:0.25s; }
     .btn-send:hover { opacity:0.9; }
 
-    /* Toggle */
     .toggle-group {
       display:flex; justify-content:space-between; align-items:center;
       padding:12px 0; border-bottom:1px solid var(--gray-200);
@@ -294,7 +338,6 @@
     .dark .notification-text { color:var(--gray-400); }
     .notification-time { font-size:0.78rem; color:var(--gray-400); margin-top:2px; }
 
-    /* Settings */
     .settings-section { margin-bottom:32px; }
     .settings-section h2 { font-size:1.3rem; margin-bottom:16px; }
     .settings-card { background:var(--card-bg); border-radius:var(--radius); padding:24px; border:1px solid var(--gray-200); }
@@ -344,20 +387,38 @@
   </style>
 </head>
 <body>
-  <div class="page-loader" id="pageLoader"><div class="loader-text"><i class="fas fa-car"></i> Service Hub</div></div>
+
+  <div class="page-loader" id="pageLoader">
+    <div class="text-center">
+      <div class="loader-ring mx-auto mb-4"></div>
+      <p style="color:#94a3b8;font-weight:500;font-size:14px;">Loading Dashboard...</p>
+    </div>
+  </div>
 
   <aside class="admin-sidebar" id="adminSidebar">
     <div class="sidebar-inner">
-      <a href="#" class="logo"><i class="fas fa-car"></i> Auto<span style="color:var(--primary-light);">Service</span></a>
+      <a href="index.html" class="logo">
+        <div class="logo-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" fill="currentColor"/>
+            <path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2-1h2m10 1l2-1V8a1 1 0 00-1-1h-4m-4 8H7m6 0a2 2 0 002-2v-3a2 2 0 00-2-2H9a2 2 0 00-2 2v3a2 2 0 002 2zm6-6h2"/>
+          </svg>
+          <div class="logo-badge"></div>
+        </div>
+        <div class="block">
+          <span class="logo-text-main">Car Service</span>
+          <span class="logo-text-sub">& Repair Center</span>
+        </div>
+      </a>
       <nav class="sidebar-menu">
         <a href="#dashboard" class="sidebar-item active" data-section="dashboard"><i class="fas fa-th-large"></i> Dashboard</a>
-        <a href="#orders" class="sidebar-item" data-section="orders"><i class="fas fa-tasks"></i> Service Orders</a>
+        <a href="#orders" class="sidebar-item" data-section="orders"><i class="fas fa-clipboard-list"></i> Service Orders</a>
         <a href="#customers" class="sidebar-item" data-section="customers"><i class="fas fa-users"></i> Customers</a>
         <a href="#services" class="sidebar-item" data-section="services"><i class="fas fa-wrench"></i> Services</a>
         <a href="#analytics" class="sidebar-item" data-section="analytics"><i class="fas fa-chart-line"></i> Analytics</a>
         <a href="#messages" class="sidebar-item" data-section="messages"><i class="fas fa-envelope"></i> Messages</a>
         <a href="#settings" class="sidebar-item" data-section="settings"><i class="fas fa-cog"></i> Settings</a>
-        <a href="#" class="sidebar-item logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a href="login.html" class="sidebar-item logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
       </nav>
     </div>
   </aside>
@@ -373,7 +434,6 @@
           <p id="pageDesc">Welcome back, James. Here is your repair center overview.</p>
         </div>
       </div>
-      
       <div class="admin-header-right">
         <div class="dashboard-controls">
           <button class="dir-toggle" data-dir-toggle><span>LTR</span></button>
@@ -393,41 +453,37 @@
       <!-- Dashboard -->
       <div class="section-panel active" id="section-dashboard">
         <div class="grid-4" style="margin-bottom:32px;">
-          <div class="stat-card"><div class="stat-card-icon" style="background:#0b3b5c;"><i class="fas fa-car"></i></div><h3>24</h3><p>Active Services</p><span style="color:#16a34a;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 8% vs last month</span></div>
-          <div class="stat-card"><div class="stat-card-icon" style="background:#1a5a7a;"><i class="fas fa-user-check"></i></div><h3>112</h3><p>Total Customers</p><span style="color:#16a34a;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 12% vs last month</span></div>
-          <div class="stat-card"><div class="stat-card-icon" style="background:#2563eb;"><i class="fas fa-pound-sign"></i></div><h3>£68.2k</h3><p>Revenue YTD</p><span style="color:#16a34a;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 22% vs last year</span></div>
-          <div class="stat-card"><div class="stat-card-icon" style="background:#dc2626;"><i class="fas fa-clock"></i></div><h3>9</h3><p>Pending Approvals</p><span style="color:#ea580c;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 3% vs last week</span></div>
+          <div class="stat-card"><div class="stat-card-icon" style="background:linear-gradient(135deg, #2563eb, #1d4ed8);"><i class="fas fa-car"></i></div><h3>24</h3><p>Active Services</p><span style="color:#16a34a;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 8% vs last month</span></div>
+          <div class="stat-card"><div class="stat-card-icon" style="background:linear-gradient(135deg, #3b82f6, #2563eb);"><i class="fas fa-user-check"></i></div><h3>112</h3><p>Total Customers</p><span style="color:#16a34a;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 12% vs last month</span></div>
+          <div class="stat-card"><div class="stat-card-icon" style="background:linear-gradient(135deg, #111827, #374151);"><i class="fas fa-pound-sign"></i></div><h3>£68.2k</h3><p>Revenue YTD</p><span style="color:#16a34a;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 22% vs last year</span></div>
+          <div class="stat-card"><div class="stat-card-icon" style="background:linear-gradient(135deg, #dc2626, #b91c1c);"><i class="fas fa-clock"></i></div><h3>9</h3><p>Pending Approvals</p><span style="color:#ea580c;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 3% vs last week</span></div>
         </div>
 
         <div class="grid-2" style="margin-bottom:32px;">
           <div class="card">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
               <h3 style="font-size:1.2rem;">Revenue Overview</h3>
-              <select style="padding:6px 12px;border:1px solid var(--gray-200);border-radius:6px;font-size:0.8rem;background:transparent;color:inherit;">
+              <select style="padding:6px 12px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.8rem;background:transparent;color:inherit;">
                 <option>This Year</option><option>This Quarter</option><option>This Month</option>
               </select>
             </div>
-            <div class="chart-container" style="position: relative; height:220px; width:100%;">
-              <canvas id="revenueChart"></canvas>
-            </div>
+            <div class="chart-container" style="position: relative; height:220px; width:100%;"><canvas id="revenueChart"></canvas></div>
           </div>
           <div class="card">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
               <h3 style="font-size:1.2rem;">Service Trends</h3>
-              <select style="padding:6px 12px;border:1px solid var(--gray-200);border-radius:6px;font-size:0.8rem;background:transparent;color:inherit;">
+              <select style="padding:6px 12px;border:1px solid var(--gray-200);border-radius:8px;font-size:0.8rem;background:transparent;color:inherit;">
                 <option>This Year</option><option>This Quarter</option><option>This Month</option>
               </select>
             </div>
-            <div class="chart-container" style="position: relative; height:220px; width:100%;">
-              <canvas id="ordersChart"></canvas>
-            </div>
+            <div class="chart-container" style="position: relative; height:220px; width:100%;"><canvas id="ordersChart"></canvas></div>
           </div>
         </div>
 
         <div class="card" style="margin-bottom:32px;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
             <h3 style="font-size:1.2rem;">Recent Service Orders</h3>
-            <a href="#orders" style="color:var(--primary);font-size:0.85rem;">View All <i class="fas fa-arrow-right"></i></a>
+            <a href="#orders" style="color:var(--primary);font-size:0.85rem;font-weight:600;">View All <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="table-container">
             <table>
@@ -491,10 +547,10 @@
       <!-- Analytics -->
       <div class="section-panel" id="section-analytics">
         <div class="grid-4" style="margin-bottom:32px;">
-          <div class="stat-card"><div class="stat-card-icon" style="background:#0b3b5c;"><i class="fas fa-pound-sign"></i></div><h3>£68.2k</h3><p>Revenue YTD</p><span style="color:#16a34a;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 22%</span></div>
-          <div class="stat-card"><div class="stat-card-icon" style="background:#1a5a7a;"><i class="fas fa-tasks"></i></div><h3>156</h3><p>Services YTD</p><span style="color:#16a34a;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 15%</span></div>
-          <div class="stat-card"><div class="stat-card-icon" style="background:#2563eb;"><i class="fas fa-users"></i></div><h3>112</h3><p>Customers</p><span style="color:#16a34a;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 12%</span></div>
-          <div class="stat-card"><div class="stat-card-icon" style="background:#dc2626;"><i class="fas fa-chart-line"></i></div><h3>£437</h3><p>Avg Service Value</p><span style="color:#16a34a;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 6%</span></div>
+          <div class="stat-card"><div class="stat-card-icon" style="background:linear-gradient(135deg, #2563eb, #1d4ed8);"><i class="fas fa-pound-sign"></i></div><h3>£68.2k</h3><p>Revenue YTD</p><span style="color:#16a34a;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 22%</span></div>
+          <div class="stat-card"><div class="stat-card-icon" style="background:linear-gradient(135deg, #3b82f6, #2563eb);"><i class="fas fa-tasks"></i></div><h3>156</h3><p>Services YTD</p><span style="color:#16a34a;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 15%</span></div>
+          <div class="stat-card"><div class="stat-card-icon" style="background:linear-gradient(135deg, #111827, #374151);"><i class="fas fa-users"></i></div><h3>112</h3><p>Customers</p><span style="color:#16a34a;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 12%</span></div>
+          <div class="stat-card"><div class="stat-card-icon" style="background:linear-gradient(135deg, #dc2626, #b91c1c);"><i class="fas fa-chart-line"></i></div><h3>£437</h3><p>Avg Service Value</p><span style="color:#16a34a;font-size:0.8rem;"><i class="fas fa-arrow-up"></i> 6%</span></div>
         </div>
         <div class="grid-2" style="margin-bottom:32px;">
           <div class="card"><h3 style="font-size:1.2rem;margin-bottom:16px;">Revenue Trends</h3><div class="chart-container" style="position: relative; height:240px; width:100%;"><canvas id="revenueTrendsChart"></canvas></div></div>
@@ -536,7 +592,7 @@
 
       <!-- Settings -->
       <div class="section-panel" id="section-settings">
-        <div class="settings-section"><h2>Garage Information</h2><div class="settings-card"><div class="form-row"><div class="form-group"><label>Garage Name</label><input type="text" value="AutoService & Repair Center"></div><div class="form-group"><label>Email</label><input type="email" value="contact@autoservice.co.uk"></div></div><button class="btn-save">Save Changes</button></div></div>
+        <div class="settings-section"><h2>Garage Information</h2><div class="settings-card"><div class="form-row"><div class="form-group"><label>Garage Name</label><input type="text" value="Car Service & Repair Center"></div><div class="form-group"><label>Email</label><input type="email" value="contact@carservice.co.uk"></div></div><button class="btn-save">Save Changes</button></div></div>
         <div class="settings-section"><h2>Notifications</h2><div class="settings-card"><div class="toggle-group"><div><div class="toggle-label">Email Notifications</div><div class="toggle-desc">Receive email updates for account activity</div></div><div class="toggle-switch active"></div></div><div class="toggle-group"><div><div class="toggle-label">Service Updates</div><div class="toggle-desc">Get notified when service orders change status</div></div><div class="toggle-switch active"></div></div></div></div>
         <div class="settings-section"><h2>Security</h2><div class="settings-card"><div class="form-group"><label>Current Password</label><input type="password" placeholder="Enter current password"></div><div class="form-row"><div class="form-group"><label>New Password</label><input type="password" placeholder="Enter new password"></div><div class="form-group"><label>Confirm New Password</label><input type="password" placeholder="Confirm new password"></div></div><button class="btn-save">Update Password</button></div></div>
       </div>
@@ -594,7 +650,7 @@
       });
 
       if (logoutBtn) {
-        logoutBtn.addEventListener('click', function(e) { e.preventDefault(); localStorage.clear(); window.location.href = '../index.html'; });
+        logoutBtn.addEventListener('click', function(e) { e.preventDefault(); localStorage.clear(); window.location.href = 'login.html'; });
       }
 
       document.querySelectorAll('.toggle-switch').forEach(function(el) {
@@ -634,12 +690,11 @@
       handleHash();
       if (!window.location.hash) window.location.hash = 'dashboard';
 
-      // Charts
       const ctxRevenue = document.getElementById('revenueChart')?.getContext('2d');
       if(ctxRevenue) {
         new Chart(ctxRevenue, {
           type: 'bar',
-          data: { labels: ['Jan','Feb','Mar','Apr','May','Jun'], datasets: [{ label: 'Revenue (£)', data: [5000, 8000, 12000, 18000, 15000, 22000], backgroundColor: '#0b3b5c', borderRadius: 4 }] },
+          data: { labels: ['Jan','Feb','Mar','Apr','May','Jun'], datasets: [{ label: 'Revenue (£)', data: [5000, 8000, 12000, 18000, 15000, 22000], backgroundColor: 'rgba(37, 99, 235, 0.85)', borderRadius: 6 }] },
           options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
         });
       }
@@ -647,7 +702,7 @@
       if(ctxOrders) {
         new Chart(ctxOrders, {
           type: 'line',
-          data: { labels: ['Jan','Feb','Mar','Apr','May','Jun'], datasets: [{ label: 'Services', data: [8, 14, 22, 30, 26, 38], borderColor: '#1a5a7a', backgroundColor: 'rgba(26,90,122,0.1)', fill: true, tension: 0.3 }] },
+          data: { labels: ['Jan','Feb','Mar','Apr','May','Jun'], datasets: [{ label: 'Services', data: [8, 14, 22, 30, 26, 38], borderColor: '#3b82f6', backgroundColor: 'rgba(59, 130, 246, 0.1)', fill: true, tension: 0.4 }] },
           options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
         });
       }
@@ -655,7 +710,7 @@
       if(ctxTrends) {
         new Chart(ctxTrends, {
           type: 'line',
-          data: { labels: ['Jan','Feb','Mar','Apr','May','Jun'], datasets: [{ label: 'Revenue Trend (£)', data: [8000, 12000, 18000, 24000, 22000, 30000], borderColor: '#0b3b5c', backgroundColor: 'rgba(11,59,92,0.2)', fill: true, tension: 0.4 }] },
+          data: { labels: ['Jan','Feb','Mar','Apr','May','Jun'], datasets: [{ label: 'Revenue Trend (£)', data: [8000, 12000, 18000, 24000, 22000, 30000], borderColor: '#2563eb', backgroundColor: 'rgba(37, 99, 235, 0.15)', fill: true, tension: 0.4 }] },
           options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
         });
       }
@@ -663,7 +718,7 @@
       if(ctxBreakdown) {
         new Chart(ctxBreakdown, {
           type: 'pie',
-          data: { labels: ['Full Service', 'Brake Replacement', 'Engine Diagnostic'], datasets: [{ data: [42, 38, 56], backgroundColor: ['#0b3b5c', '#1a5a7a', '#2563eb'], borderWidth: 1 }] },
+          data: { labels: ['Full Service', 'Brake Replacement', 'Engine Diagnostic'], datasets: [{ data: [42, 38, 56], backgroundColor: ['#2563eb', '#3b82f6', '#111827'], borderWidth: 1 }] },
           options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } } }
         });
       }

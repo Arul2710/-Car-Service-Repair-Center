@@ -110,18 +110,32 @@
     }
     .dark .user-sidebar { background: #111b24; border-color: #26323d; }
     .user-sidebar .logo {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--primary);
-      letter-spacing: -0.3px;
-      text-decoration: none;
-      margin-bottom: 32px;
-      display: block;
-      white-space: nowrap;
+      margin-bottom:32px; display:flex; align-items:center; gap:10px;
+      text-decoration:none; flex-shrink:0; white-space:nowrap; position:relative;
     }
-    .user-sidebar .logo i { color: var(--primary); margin-right: 8px; }
-    .dark .user-sidebar .logo { color: var(--primary); }
+    .user-sidebar .logo:hover .logo-icon-wrap { transform:scale(1.05); box-shadow:0 8px 25px rgba(37,99,235,0.3); }
+    .user-sidebar .logo-icon-wrap {
+      width:40px; height:40px; background:linear-gradient(135deg,#2563EB,#1D4ED8);
+      border-radius:12px; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 15px rgba(37,99,235,0.25); transition:all 0.3s ease; position:relative;
+      flex-shrink:0;
+    }
+    .user-sidebar .logo-icon-wrap svg { width:20px; height:20px; color:#fff; }
+    .user-sidebar .logo-icon-wrap .logo-badge {
+      position:absolute; top:-3px; right:-3px; width:12px; height:12px;
+      background:#F97316; border-radius:50%; border:2px solid #fff; transition:border-color 0.5s;
+    }
+    .user-sidebar .logo-text-main {
+      font-size:0.95rem; font-weight:800; letter-spacing:-0.01em;
+      color:#1F2937; line-height:1.2; display:block; transition:color 0.5s;
+    }
+    .user-sidebar .logo-text-sub {
+      font-size:0.55rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+      color:#6B7280; line-height:1.2; display:block; transition:color 0.5s;
+    }
+    .dark .user-sidebar .logo-text-main { color:#F9FAFB; }
+    .dark .user-sidebar .logo-text-sub { color:#9CA3AF; }
+    .dark .user-sidebar .logo-icon-wrap .logo-badge { border-color:#111b24; }
     .sidebar-menu { display: flex; flex-direction: column; gap: 4px; flex: 1; }
     
     .sidebar-item {
@@ -273,7 +287,19 @@
     <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
       <i class="fas fa-bars"></i>
     </button>
-    <span class="font-display text-xl font-bold md:hidden text-[var(--primary)]"><i class="fas fa-car"></i> AutoCare</span>
+    <a href="index.html" class="flex items-center gap-2 md:hidden text-decoration-none flex-shrink-0">
+      <div style="width:32px;height:32px;background:linear-gradient(135deg,#2563EB,#1D4ED8);border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(37,99,235,0.25);position:relative;flex-shrink:0;">
+        <svg style="width:16px;height:16px;color:#fff;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" fill="currentColor"/>
+          <path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2-1h2m10 1l2-1V8a1 1 0 00-1-1h-4m-4 8H7m6 0a2 2 0 002-2v-3a2 2 0 00-2-2H9a2 2 0 00-2 2v3a2 2 0 002 2zm6-6h2"/>
+        </svg>
+        <div style="position:absolute;top:-2px;right:-2px;width:8px;height:8px;background:#F97316;border-radius:50%;border:1.5px solid #fff;"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;line-height:1;">
+        <span style="font-size:0.85rem;font-weight:800;color:#1F2937;letter-spacing:-0.01em;">Car Service</span>
+        <span style="font-size:0.45rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6B7280;">& Repair Center</span>
+      </div>
+    </a>
   </div>
   
   <div class="flex items-center gap-4">
@@ -302,7 +328,19 @@
 <!-- SIDEBAR -->
 <aside class="user-sidebar" id="userSidebar">
   <div class="flex flex-col h-full">
-    <a href="#" class="logo"><i class="fas fa-car"></i> Auto<span style="color:var(--primary);">Care</span></a>
+    <a href="index.html" class="logo">
+      <div class="logo-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" fill="currentColor"/>
+          <path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2-1h2m10 1l2-1V8a1 1 0 00-1-1h-4m-4 8H7m6 0a2 2 0 002-2v-3a2 2 0 00-2-2H9a2 2 0 00-2 2v3a2 2 0 002 2zm6-6h2"/>
+        </svg>
+        <div class="logo-badge"></div>
+      </div>
+      <div class="block">
+        <span class="logo-text-main">Car Service</span>
+        <span class="logo-text-sub">& Repair Center</span>
+      </div>
+    </a>
     <nav class="sidebar-menu" id="sidebarMenu">
       <a class="sidebar-item active" data-section="dashboard"><i class="fas fa-th-large"></i> Dashboard</a>
       <a class="sidebar-item" data-section="vehicles"><i class="fas fa-car-side"></i> My Vehicles</a>

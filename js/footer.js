@@ -1,8 +1,8 @@
 function renderFooter() {
-  const isLoginPage = window.location.pathname.includes('login.html');
+  const isLoginPage = false;
   const isAdminPage = window.location.pathname.includes('admin.html');
   const isUserPage = window.location.pathname.includes('user.html');
-  if (isLoginPage || isAdminPage || isUserPage) return;
+  if (isAdminPage || isUserPage) return;
 
   const isHome = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || window.location.pathname === '';
   const isHome2 = window.location.pathname.includes('home2.html');
@@ -14,27 +14,7 @@ function renderFooter() {
     <div class="absolute top-0 left-0 w-96 h-96 bg-blue-600/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
     <div class="absolute bottom-0 right-0 w-80 h-80 bg-orange-500/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
 
-    <!-- CTA Banner -->
-    <div class="relative bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 py-14">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
-          <div class="text-center lg:text-left">
-            <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">Ready to Get Your Car Serviced?</h3>
-            <p class="text-blue-100 text-lg">Book an appointment today and get <span class="font-bold text-orange-300">15% off</span> on your first service!</p>
-          </div>
-          <div class="flex flex-col sm:flex-row items-center gap-4">
-            <a href="${prefix}booking.html" class="bg-white text-blue-700 px-8 py-3.5 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5 flex items-center space-x-2 text-center">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-              <span>Book Now</span>
-            </a>
-            <a href="tel:+1800123456" class="bg-green-500 text-white px-8 py-3.5 rounded-xl font-bold hover:bg-green-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5 flex items-center space-x-2 text-center">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-              <span>Call: +1 (800) 123-456</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
     <!-- Main Footer -->
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
